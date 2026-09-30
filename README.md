@@ -91,6 +91,7 @@ Mudanças só em `docs:`, `style:` ou `chore:` não exigem versão nova por si s
 | Versão   | Descrição                                               |
 |----------|---------------------------------------------------------|
 | `v1.0.0` | deploy inicial do Instituto Vida Nova via GitHub Pages  |
+| `v1.1.0` | acessibilidade WCAG 2.1 (ARIA, dark mode) e build/deploy via Vite + GitHub Actions |
 
 ## Deploy
 
