@@ -10,8 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
-  <!-- IMask 7.6.1 (MIT): máscara de telefone. Script clássico adiado, roda antes do módulo abaixo. -->
-  <script defer src="../js/vendor/imask.min.js"></script>
+  <!-- IMask 7.6.1 (MIT): máscara de telefone. Carregado como módulo para o Vite incluí-lo no build;
+       módulos rodam na ordem do documento, então ele define window.IMask antes do main.js. -->
+  <script type="module" src="../js/vendor/imask.min.js"></script>
   <script type="module" src="../js/main.js"></script>
 </head>
 <body>
