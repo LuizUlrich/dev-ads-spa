@@ -1,0 +1,20 @@
+# Dependências (caso o projeto passe a usar Vite/npm)
+node_modules/
+
+# Build
+dist/
+.vite/
+
+# Ambiente
+.env
+.env.local
+.env.*.local
+
+# Deploy
+.vercel/
+
+# Sistema operacional / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instituto Vida Nova</title>
+  <meta name="description" content="Instituto Vida Nova: conheça nossos projetos de educação, saúde e meio ambiente, doe ou seja voluntário.">
+  <link rel="icon" type="image/svg+xml" href="../imagens/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- IMask 7.6.1 (MIT): máscara de telefone. Script clássico adiado, roda antes do módulo abaixo. -->
+  <script defer src="../js/vendor/imask.min.js"></script>
+  <script type="module" src="../js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#app">Ir para o conteúdo</a>
+
+  <div class="site-header">
+    <header class="header container">
+      <a class="logo" href="#/">
+        <img class="logo__img" src="../imagens/logo.svg" alt="" width="28" height="28">
+        <span>Instituto Vida Nova</span>
+      </a>
+
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
+        <span class="nav__toggle-barra"></span>
+        <span class="nav__toggle-barra"></span>
+        <span class="nav__toggle-barra"></span>
+      </button>
+
+      <nav class="nav" aria-label="Principal">
+        <ul class="nav__list" id="menu-principal">
+          <li class="nav__item"><a class="nav__link" href="#/">Início</a></li>
+          <li class="nav__item nav__item--dropdown">
+            <a class="nav__link" href="#/projetos">Projetos</a>
+            <ul class="nav__submenu">
+              <li><a class="nav__link" href="#/projetos/educacao">Educação</a></li>
+              <li><a class="nav__link" href="#/projetos/saude">Saúde</a></li>
+              <li><a class="nav__link" href="#/projetos/ambiente">Meio ambiente</a></li>
+            </ul>
+          </li>
+          <li class="nav__item"><a class="nav__link" href="#/cadastro">Seja voluntário</a></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+
+  <!-- As telas são desenhadas aqui pelo roteador (js/modules/router.js) -->
+  <main id="app" tabindex="-1">
+    <noscript>
+      <p class="aviso-sem-js">Este site precisa de JavaScript ativado para exibir o conteúdo.</p>
+    </noscript>
+  </main>
+
+  <dialog class="modal" id="modal-sucesso" aria-labelledby="modal-sucesso-titulo">
+    <div class="modal__cabecalho">
+      <h2 class="modal__titulo" id="modal-sucesso-titulo">Cadastro enviado</h2>
+      <button class="alert__fechar" type="button" data-modal-fechar aria-label="Fechar">×</button>
+    </div>
+    <div class="modal__corpo">
+      <p>Recebemos seus dados. A equipe do Instituto Vida Nova vai entrar em contato em até cinco dias úteis.</p>
+    </div>
+    <div class="modal__rodape">
+      <button class="btn" type="button" data-modal-fechar>Entendi</button>
+    </div>
+  </dialog>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__bloco">
+          <h2>Instituto Vida Nova</h2>
+          <p>Organização fictícia criada para a Experiência Prática de Desenvolvimento Front-end.</p>
+        </div>
+        <nav class="footer__bloco" aria-label="Rodapé">
+          <h2>Navegação</h2>
+          <ul>
+            <li><a href="#/">Início</a></li>
+            <li><a href="#/projetos">Projetos</a></li>
+            <li><a href="#/cadastro">Seja voluntário</a></li>
+          </ul>
+        </nav>
+        <div class="footer__bloco">
+          <h2>Contato</h2>
+          <p>contato@vidanova.example<br>Rua da Esperança, 123 (endereço fictício)</p>
+        </div>
+      </div>
+      <p class="footer__legal">© 2026 Instituto Vida Nova. Projeto acadêmico, sem fins comerciais.</p>
+    </div>
+  </footer>
+</body>
+</html>
