@@ -83,7 +83,7 @@ Mudanças só em `docs:`, `style:` ou `chore:` não exigem versão nova por si s
 
 1. As mudanças são integradas em `develop` via Pull Request.
 2. Ao fechar um ciclo, `develop` é mesclada em `main`.
-3. O commit resultante em `main` recebe uma **tag anotada** com a versão, que é enviada ao GitHub:
+3. Se o ciclo mudou comportamento, o commit resultante em `main` recebe uma **tag anotada** com a versão, que é enviada ao GitHub:
 
        git tag -a v1.1.0 -m "Release v1.1.0: <resumo>"
        git push origin v1.1.0
