@@ -28,9 +28,13 @@
   --cor-borda: #D2D6DC;
   --cor-fundo: #F7F8F5;
   --cor-branco: #FFFFFF;
+  --cor-texto-inverso: #FFFFFF; /* texto sobre fundo colorido; não muda no modo escuro */
 
   /* Feedback de formulário */
   --cor-erro: #B42318;
+
+  /* Cor de texto/link (desacoplada da cor de fundo dos botões) */
+  --cor-link: var(--cor-primaria);
 
   /* Tipografia: 5 níveis */
   --fs-xs: 0.875rem;   /* 14px */
@@ -99,7 +103,7 @@ h3 { font-size: var(--fs-lg); }
 
 p { margin: 0 0 var(--esp-3); }
 
-a { color: var(--cor-primaria); }
+a { color: var(--cor-link); }
 a:hover { color: var(--cor-primaria-escura); }
 
 [id] { scroll-margin-top: 100px; }
@@ -132,7 +136,7 @@ a:hover { color: var(--cor-primaria-escura); }
   z-index: 100;
   padding: var(--esp-2) var(--esp-3);
   background: var(--cor-primaria-escura);
-  color: var(--cor-branco);
+  color: var(--cor-texto-inverso);
   border-radius: var(--raio);
 }
 .skip-link:focus { top: var(--esp-3); }
@@ -189,7 +193,7 @@ a:hover { color: var(--cor-primaria-escura); }
 .logo {
   font-size: var(--fs-lg);
   font-weight: 700;
-  color: var(--cor-primaria);
+  color: var(--cor-link);
   text-decoration: none;
 }
 .logo:hover { color: var(--cor-primaria-escura); }
@@ -253,12 +257,12 @@ a:hover { color: var(--cor-primaria-escura); }
   transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
 }
 .nav__link:hover {
-  color: var(--cor-primaria);
+  color: var(--cor-link);
   background: var(--cor-primaria-clara);
 }
 .nav__link[aria-current="page"] {
-  color: var(--cor-primaria);
-  border-bottom-color: var(--cor-primaria);
+  color: var(--cor-link);
+  border-bottom-color: var(--cor-link);
 }
 
 /* Mobile: submenu empilhado dentro do painel */
@@ -283,7 +287,7 @@ a:hover { color: var(--cor-primaria-escura); }
   font-weight: 600;
   line-height: 1.2;
   text-decoration: none;
-  color: var(--cor-branco);
+  color: var(--cor-texto-inverso);
   background: var(--cor-primaria);
   border: 2px solid var(--cor-primaria);
   border-radius: var(--raio);
@@ -293,7 +297,7 @@ a:hover { color: var(--cor-primaria-escura); }
 }
 
 .btn:hover:not(:disabled) {
-  color: var(--cor-branco);
+  color: var(--cor-texto-inverso);
   background: var(--cor-primaria-escura);
   border-color: var(--cor-primaria-escura);
   box-shadow: var(--sombra-media);
@@ -318,9 +322,9 @@ a:hover { color: var(--cor-primaria-escura); }
 
 /* Secundário: contorno */
 .btn--secundario {
-  color: var(--cor-primaria);
+  color: var(--cor-link);
   background: transparent;
-  border-color: var(--cor-primaria);
+  border-color: var(--cor-link);
 }
 .btn--secundario:hover:not(:disabled) {
   color: var(--cor-primaria-escura);
@@ -500,7 +504,7 @@ a:hover { color: var(--cor-primaria-escura); }
   margin-top: 2px;
   font-size: 11px;
   font-weight: 700;
-  color: var(--cor-branco);
+  color: var(--cor-texto-inverso);
   background: var(--cor-erro);
   border-radius: 50%;
 }
@@ -561,8 +565,8 @@ a:hover { color: var(--cor-primaria-escura); }
 }
 .badge--erro {
   color: var(--cor-erro);
-  background: color-mix(in srgb, var(--cor-erro) 8%, white);
-  border-color: color-mix(in srgb, var(--cor-erro) 35%, white);
+  background: color-mix(in srgb, var(--cor-erro) 8%, var(--cor-branco));
+  border-color: color-mix(in srgb, var(--cor-erro) 35%, var(--cor-branco));
 }
 .badge--info {
   color: var(--cor-texto);
@@ -592,7 +596,7 @@ a:hover { color: var(--cor-primaria-escura); }
   height: 24px;
   font-size: var(--fs-xs);
   font-weight: 700;
-  color: var(--cor-branco);
+  color: var(--cor-texto-inverso);
   background: var(--alert-cor);
   border-radius: 50%;
 }
@@ -604,7 +608,7 @@ a:hover { color: var(--cor-primaria-escura); }
 .alert--sucesso::before { content: "✓"; }
 .alert--aviso { --alert-cor: var(--cor-secundaria); background: var(--cor-secundaria-clara); }
 .alert--aviso::before { content: "!"; }
-.alert--erro { --alert-cor: var(--cor-erro); background: color-mix(in srgb, var(--cor-erro) 8%, white); }
+.alert--erro { --alert-cor: var(--cor-erro); background: color-mix(in srgb, var(--cor-erro) 8%, var(--cor-branco)); }
 .alert--erro::before { content: "✕"; }
 
 .alert__fechar {
@@ -699,10 +703,10 @@ a:hover { color: var(--cor-primaria-escura); }
 .footer {
   margin-top: var(--esp-7);
   padding-block: var(--esp-6);
-  color: var(--cor-branco);
+  color: var(--cor-texto-inverso);
   background: var(--cor-primaria-escura);
 }
-.footer a { color: var(--cor-branco); }
+.footer a { color: var(--cor-texto-inverso); }
 .footer a:hover { color: var(--cor-primaria-clara); }
 
 .footer__content {
@@ -712,7 +716,7 @@ a:hover { color: var(--cor-primaria-escura); }
   gap: var(--esp-4);
 }
 .footer__bloco { flex: 1 1 200px; }
-.footer__bloco h2 { font-size: var(--fs-lg); color: var(--cor-branco); }
+.footer__bloco h2 { font-size: var(--fs-lg); color: var(--cor-texto-inverso); }
 .footer__bloco ul { margin: 0; padding: 0; list-style: none; }
 .footer__bloco li { margin-bottom: var(--esp-2); }
 .footer__legal {
@@ -867,5 +871,36 @@ a:hover { color: var(--cor-primaria-escura); }
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+
+/* ==========================================================================
+   Modo escuro: segue a preferência do sistema (prefers-color-scheme)
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cor-fundo: #14171A;
+    --cor-branco: #1E2226;
+    --cor-texto: #E7EAEE;
+    --cor-texto-suave: #A7B0BA;
+    --cor-borda: #666F7A;
+    --cor-erro: #F1685B;
+    --cor-link: #4FAE85;
+    --cor-primaria-clara: #16241D;
+    --cor-secundaria-clara: #2B2116;
+  }
+
+  /* badges com texto fixo escuro precisam de versão clara neste tema */
+  .badge--sucesso { color: var(--cor-link); }
+  .badge--aviso   { color: color-mix(in srgb, var(--cor-secundaria) 70%, white); }
+  /* hover de link: no escuro, clareia em vez de escurecer */
+  a:hover,
+  .logo:hover { color: color-mix(in srgb, var(--cor-link) 70%, white); }
+
+  .btn--secundario:hover:not(:disabled),
+  .btn--secundario:active:not(:disabled) {
+    color: var(--cor-link);
+    border-color: var(--cor-link);
   }
 }
