@@ -48,14 +48,13 @@ funciona sem máscara. A validação (RegEx) continua sendo a garantia final.
 
 ## Versionamento
 
-Repositório organizado segundo o padrão **GitFlow**, com quatro tipos de branch:
+Repositório organizado segundo o padrão **GitFlow**, com cinco tipos de branch:
 
-- **`main`** — código em produção. Só recebe merge de `develop` (fechamento de ciclo) ou de `hotfix/*` (correção urgente). Cada merge em `main` é uma versão publicada.
+- **`main`** — código em produção. Só recebe merge de `develop` (fechamento de ciclo) ou de `hotfix/*` (correção urgente). Cada merge em `main` é publicado em produção; os que mudam comportamento recebem uma tag de versão.
 - **`develop`** — branch de integração. É onde as funcionalidades concluídas se encontram antes de ir pra produção. Sempre deve estar em estado funcional.
 - **`feature/<nome>`** — uma branch por funcionalidade nova, criada a partir de `develop`. Ao concluir, abre-se um Pull Request de volta pra `develop`, com revisão antes do merge.
 - **`hotfix/<nome>`** — correção urgente em produção, criada a partir de `main`. Ao concluir, faz merge tanto em `main` quanto em `develop`, pra a correção não se perder no próximo ciclo.
-
-Mudanças só de documentação usam o prefixo **`docs/<nome>`** e seguem o mesmo fluxo de `feature/*` (saem de `develop` e voltam por Pull Request).
+- **`docs/<nome>`** — mudanças só de documentação. Segue o mesmo fluxo de `feature/*`: sai de `develop` e volta por Pull Request.
 
 ### Commits semânticos
 
