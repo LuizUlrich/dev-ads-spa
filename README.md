@@ -4,10 +4,15 @@ Single Page Application em HTML, CSS e JavaScript puros (módulos ES6), sem fram
 
 ## Como rodar
 
-Módulos ES6 não funcionam abrindo o arquivo direto (`file://`). Use um servidor local
-(por exemplo, a extensão Live Server do VS Code) com esta pasta como raiz e abra:
+Requer Node.js 20.19+ (ou 22.12+). O projeto usa [Vite](https://vite.dev/) como servidor de desenvolvimento e bundler.
 
-    http://127.0.0.1:5500/html/index.html
+    npm install        # instala as dependências (só o Vite)
+    npm run dev        # ambiente local em http://localhost:5173/ (redireciona para html/index.html)
+
+Para testar localmente o build de produção, o mesmo que vai para o GitHub Pages:
+
+    npm run build      # gera dist/ (HTML, CSS e JS minificados, com hash no nome)
+    npm run preview    # serve dist/ em http://localhost:4173/dev-ads-spa/
 
 ## Estrutura
 
@@ -95,8 +100,13 @@ Mudanças só em `docs:`, `style:` ou `chore:` não exigem versão nova por si s
 
 ## Deploy
 
-Publicado com **GitHub Pages** a partir da branch `main`, pasta `/` (raiz). Todo push em `main` gera um novo deploy automaticamente.
+Publicado no **GitHub Pages** por **GitHub Actions**, com o Source do Pages configurado como "GitHub Actions" (não mais "Deploy from a branch").
 
 **Produção:** https://luizulrich.github.io/dev-ads-spa/
 
-O `index.html` da raiz só redireciona para `html/index.html`, que é o app de fato. Como os caminhos dos arquivos são relativos e as rotas usam hash (`#/...`), o site funciona no subcaminho `/dev-ads-spa/` sem configuração extra.
+A cada push em `main`, o workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) roda dois jobs (também pode ser disparado à mão na aba Actions):
+
+1. **build**: instala as dependências com `npm ci`, roda `npm run build` (Vite) e empacota a pasta `dist/` como artefato do Pages.
+2. **deploy**: publica esse artefato no GitHub Pages.
+
+Só o conteúdo de `dist/` vai para o ar. No build, o Vite usa `html/` como raiz, então `html/index.html` vira `dist/index.html`. Com `base: '/dev-ads-spa/'`, os caminhos de CSS, JS e imagens apontam para o subcaminho do Pages (ver [`vite.config.js`](vite.config.js)). As rotas usam hash (`#/...`), então não é preciso configurar fallback de SPA no servidor.
